@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIOL21312 Q2 | Interactive Film Reflection</title>
+    <meta
+      name="description"
+      content="A video-first local microsite for BIOL21312 Question 2, using Trainspotting as the lead case and comparing Requiem for a Dream and The Father."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0d10'/%3E%3Cpath d='M15 18h34v7H35v21h-8V25H15z' fill='%2398ff3f'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-lens="trainspotting">
+    <div class="site-frame">
+      <header class="hero-stage" id="top">
+        <nav class="top-nav" aria-label="Primary">
+          <a class="brand" href="#top">BIOL21312 Q2</a>
+          <div class="top-nav-links">
+            <a href="#discussion">Discussion</a>
+            <a href="#verdict">Verdict</a>
+            <a href="./references.html">References</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">Question 2 | Local video-first microsite</p>
+            <h1 id="hero-title"></h1>
+            <p class="hero-intro" id="hero-intro"></p>
+          </div>
+
+          <aside class="lens-panel" id="lens-panel" aria-live="polite"></aside>
+        </div>
+
+        <section class="video-band reveal" id="video">
+          <div class="video-copy">
+            <p class="eyebrow">Presentation module</p>
+            <h2 id="video-title"></h2>
+            <p id="video-caption"></p>
+            <p class="video-note" id="video-note"></p>
+          </div>
+          <div class="video-shell" id="video-shell"></div>
+        </section>
+      </header>
+
+      <main>
+        <section class="band band-light reveal" id="discussion">
+          <div class="band-head">
+            <p class="eyebrow">Discussion part</p>
+            <h2 id="discussion-title">When does representing illness remain legitimate?</h2>
+            <p id="discussion-intro"></p>
+          </div>
+          <div class="discussion-shell">
+            <div class="discussion-menu" id="discussion-menu" role="tablist" aria-label="Discussion views"></div>
+            <div class="discussion-stage" id="discussion-stage" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="band band-accent reveal" id="verdict">
+          <div class="verdict-grid">
+            <div class="answer-card">
+              <span>Yes,</span>
+              <strong>but only conditionally.</strong>
+            </div>
+
+            <div class="verdict-copy">
+              <p class="eyebrow">Direct answer</p>
+              <h2>Entertainment is legitimate only when it deepens understanding</h2>
+              <p id="verdict-text"></p>
+              <p id="verdict-note"></p>
+            </div>
+          </div>
+
+          <div class="ranking-block" id="ranking-block"></div>
+
+          <div class="references-cta">
+            <p>Full Harvard references live on a linked page to match the coursework website format.</p>
+            <a href="./references.html">Open references</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <span class="footer-label">Live site placeholder</span>
+          <code>https://your-final-site-link.example</code>
+        </div>
+        <p>This local prototype is designed so the written text can later be copied into the required submission document with minimal rewriting.</p>
+      </footer>
+    </div>
+
+    <script src="./content.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
