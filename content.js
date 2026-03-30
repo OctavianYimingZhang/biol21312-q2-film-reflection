@@ -33,12 +33,13 @@ window.SITE_CONTENT = {
     title: "Insert the recorded presentation here",
     caption:
       "The site is designed so the video becomes the dominant object near the top of the page, with the written argument working as a concise analytical companion rather than a transcript.",
-    note: "Paste your YouTube embed URL into content.js later to replace this placeholder with the final recording.",
+    note: "This build now uses a compressed local MP4 so the presentation can play directly inside the site.",
+    localMp4: "./presentation.mp4",
     embedUrl: "",
     placeholderTitle: "YouTube keynote-style placeholder",
     placeholderText:
       "This area is reserved for the final pre-recorded presentation. Keep the written site concise and let the video carry the longer spoken explanation.",
-    placeholderCode: "Add your YouTube embed URL in content.js",
+    placeholderCode: "Add a local MP4 path or YouTube embed URL in content.js",
   },
   criteria: [
     {

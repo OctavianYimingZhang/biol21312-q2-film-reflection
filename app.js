@@ -50,6 +50,16 @@ function renderVideoModule() {
   caption.textContent = content.video.caption;
   note.textContent = content.video.note;
 
+  if (content.video.localMp4) {
+    shell.innerHTML = `
+      <video controls preload="metadata" playsinline>
+        <source src="${content.video.localMp4}" type="video/mp4" />
+        Your browser does not support embedded MP4 playback.
+      </video>
+    `;
+    return;
+  }
+
   if (content.video.embedUrl) {
     shell.innerHTML = `
       <iframe
