@@ -4,60 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BIOL21312 Q2 | Film Reflection</title>
-    <meta
-      name="description"
-      content="BIOL21312 Question 2 film reflection: how accurately do filmmakers portray mental health and neurological conditions?"
-    />
+    <meta name="description" content="BIOL21312 Question 2 film reflection: how accurately do filmmakers portray mental health and neurological conditions?" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="site-frame">
-      <nav class="top-nav" aria-label="Primary">
-        <a class="brand" href="#top">BIOL21312 Q2</a>
-        <div class="top-nav-links">
-          <a href="#films">Film analyses</a>
-          <a href="#discussion">Discussion</a>
-          <a href="#verdict">Conclusion</a>
-          <a href="./references.html">References</a>
+      <nav class="tab-bar" aria-label="Primary">
+        <span class="tab-brand">BIOL21312 Q2</span>
+        <div class="tab-buttons">
+          <button data-tab="overview" class="tab-btn active" type="button">Overview</button>
+          <button data-tab="films" class="tab-btn" type="button">Film Analyses</button>
+          <button data-tab="discussion" class="tab-btn" type="button">Discussion</button>
+          <button data-tab="conclusion" class="tab-btn" type="button">Conclusion</button>
+          <a href="./references.html" class="tab-link">References</a>
         </div>
       </nav>
 
-      <header id="top" class="hero reveal">
-        <p class="eyebrow">BIOL21312 | Question 2</p>
-        <h1 id="hero-title"></h1>
-        <p class="hero-intro" id="hero-intro"></p>
-        <p class="hero-bridge" id="hero-bridge"></p>
-      </header>
-
-      <section class="video-band reveal" id="video">
-        <div class="video-copy">
-          <p class="eyebrow">Presentation</p>
-          <h2 id="video-title"></h2>
-          <p id="video-caption"></p>
-        </div>
-        <div class="video-shell" id="video-shell"></div>
-      </section>
-
       <main>
-        <section class="section reveal" id="films">
-          <h2 class="section-heading">Film analyses</h2>
+        <div class="tab-view active" id="view-overview">
+          <header class="hero">
+            <p class="eyebrow">BIOL21312 | Question 2</p>
+            <h1 id="hero-title"></h1>
+            <p class="hero-intro" id="hero-intro"></p>
+            <p class="hero-bridge" id="hero-bridge"></p>
+          </header>
+          <section class="video-section">
+            <div class="video-meta">
+              <p class="eyebrow">Presentation</p>
+              <h2 id="video-title"></h2>
+              <p id="video-caption"></p>
+            </div>
+            <div class="video-shell" id="video-shell"></div>
+          </section>
+        </div>
+
+        <div class="tab-view" id="view-films">
+          <header class="view-header">
+            <p class="eyebrow">BIOL21312 | Question 2</p>
+            <h1>Film Analyses</h1>
+            <p class="view-subtitle">Experiential accuracy, clinical detail, and cinematic form across three films.</p>
+          </header>
           <div id="film-analyses"></div>
-        </section>
+        </div>
 
-        <section class="section reveal" id="discussion">
-          <h2 class="section-heading">Discussion</h2>
-          <p class="section-intro" id="discussion-intro"></p>
+        <div class="tab-view" id="view-discussion">
+          <header class="view-header">
+            <p class="eyebrow">BIOL21312 | Question 2</p>
+            <h1>Discussion</h1>
+            <p class="view-subtitle" id="discussion-intro"></p>
+          </header>
           <div id="discussion-sections"></div>
-        </section>
+        </div>
 
-        <section class="section reveal" id="verdict">
-          <h2 class="section-heading">Conclusion</h2>
+        <div class="tab-view" id="view-conclusion">
+          <header class="view-header">
+            <p class="eyebrow">BIOL21312 | Question 2</p>
+            <h1>Conclusion</h1>
+          </header>
           <div id="verdict-content"></div>
           <div class="references-cta">
             <p>Full Harvard references are listed on the linked references page.</p>
-            <a href="./references.html">Open references</a>
+            <a href="./references.html" class="cta-btn">Open references</a>
           </div>
-        </section>
+        </div>
       </main>
     </div>
 
