@@ -3,55 +3,39 @@ const content = window.SITE_CONTENT;
 function renderHero() {
   const title = document.getElementById("hero-title");
   const intro = document.getElementById("hero-intro");
-  const lensPanel = document.getElementById("lens-panel");
+  const bridge = document.getElementById("hero-bridge");
 
-  if (!title || !intro || !lensPanel) return;
+  if (!title || !intro || !bridge) return;
 
   title.textContent = content.hero.title;
   intro.textContent = content.hero.intro;
+  bridge.textContent = content.hero.bridge;
+}
 
-  function applyTab(tab) {
-    lensPanel.innerHTML = `
-      <div class="hero-film-tabs" id="hero-film-tabs"></div>
-      <div class="hero-film-card">
-        <h2>${tab.title}</h2>
-        <p>${tab.body}</p>
-        ${tab.note ? `<div class="hero-film-note">${tab.note}</div>` : ""}
-      </div>
+function renderFilmAnalyses() {
+  const container = document.getElementById("film-analyses");
+  if (!container) return;
+
+  content.films.forEach((film) => {
+    const section = document.createElement("div");
+    section.className = "film-section";
+    section.innerHTML = `
+      <h3>${film.title}</h3>
+      <p>${film.body}</p>
     `;
-
-    const tabBar = document.getElementById("hero-film-tabs");
-    content.hero.filmTabs.forEach((item) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "film-role-button";
-      button.innerHTML = `<strong>${item.label}</strong>`;
-      const active = item.key === tab.key;
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-      button.addEventListener("click", () => applyTab(item));
-      tabBar.appendChild(button);
-    });
-  }
-
-  applyTab(content.hero.filmTabs[0]);
+    container.appendChild(section);
+  });
 }
 
 function renderVideoModule() {
   const title = document.getElementById("video-title");
   const caption = document.getElementById("video-caption");
-  const note = document.getElementById("video-note");
   const shell = document.getElementById("video-shell");
 
-  if (!title || !caption || !note || !shell) return;
+  if (!title || !caption || !shell) return;
 
   title.textContent = content.video.title;
   caption.textContent = content.video.caption;
-  if (content.video.note) {
-    note.textContent = content.video.note;
-  } else {
-    note.style.display = "none";
-  }
 
   if (content.video.embedUrl) {
     shell.innerHTML = `
@@ -67,100 +51,40 @@ function renderVideoModule() {
 }
 
 function renderDiscussion() {
-  const heading = document.getElementById("discussion-title");
   const intro = document.getElementById("discussion-intro");
-  const menu = document.getElementById("discussion-menu");
-  const stage = document.getElementById("discussion-stage");
-  if (!heading || !intro || !menu || !stage) return;
+  const container = document.getElementById("discussion-sections");
+  if (!intro || !container) return;
 
-  heading.textContent = "When does representing illness remain legitimate?";
   intro.textContent = content.discussion.intro;
 
-  function renderView(tab) {
-    stage.innerHTML = "";
-    const view = document.createElement("div");
-    view.className = "discussion-view";
-    const summary = Array.isArray(tab.summary)
-      ? tab.summary.map((item) => `<p>${item}</p>`).join("")
-      : `<p>${tab.summary}</p>`;
-    view.innerHTML = `
-      <p class="eyebrow">${tab.label}</p>
-      <h3>${tab.title}</h3>
-      <div class="discussion-copy">${summary}</div>
+  content.discussion.sections.forEach((section) => {
+    const div = document.createElement("div");
+    div.className = "discussion-section";
+    const bodyHtml = section.body.map((p) => `<p>${p}</p>`).join("");
+    div.innerHTML = `
+      <h3>${section.title}</h3>
+      ${bodyHtml}
     `;
-    stage.appendChild(view);
-  }
-
-  content.discussion.tabs.forEach((tab, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "discussion-tab";
-    button.textContent = tab.label;
-    if (index === 0) button.classList.add("active");
-    button.setAttribute("role", "tab");
-    button.setAttribute("aria-selected", index === 0 ? "true" : "false");
-    button.addEventListener("click", () => {
-      menu.querySelectorAll(".discussion-tab").forEach((node) => {
-        node.classList.remove("active");
-        node.setAttribute("aria-selected", "false");
-      });
-      button.classList.add("active");
-      button.setAttribute("aria-selected", "true");
-      renderView(tab);
-    });
-    menu.appendChild(button);
+    container.appendChild(div);
   });
-
-  renderView(content.discussion.tabs[0]);
 }
 
 function renderVerdict() {
-  const verdictText = document.getElementById("verdict-text");
-  const verdictNote = document.getElementById("verdict-note");
-  const rankingBlock = document.getElementById("ranking-block");
-  if (!verdictText || !verdictNote || !rankingBlock) return;
+  const container = document.getElementById("verdict-content");
+  if (!container) return;
 
-  verdictText.textContent = content.verdict.text;
-  verdictNote.textContent = content.verdict.note;
+  let html = `<p>${content.verdict.text}</p>`;
 
-  content.verdict.ranking.forEach((item, index) => {
-    const card = document.createElement("article");
-    card.className = "ranking-card";
-    if (index === 0) card.classList.add("open");
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "ranking-toggle";
-    button.innerHTML = `
-      <span>
-        <strong>${item.title}</strong>
-        <small>${item.line}</small>
-      </span>
-      <span class="marker" aria-hidden="true">${index === 0 ? "\u2212" : "+"}</span>
+  content.verdict.films.forEach((film) => {
+    html += `
+      <div class="verdict-film">
+        <h3>${film.title}</h3>
+        <p>${film.assessment}</p>
+      </div>
     `;
-
-    const reason = document.createElement("div");
-    reason.className = "ranking-reason";
-    reason.innerHTML = `<p>${item.reason}</p>`;
-
-    button.addEventListener("click", () => {
-      const isOpen = card.classList.contains("open");
-      rankingBlock.querySelectorAll(".ranking-card").forEach((node) => {
-        node.classList.remove("open");
-        const marker = node.querySelector(".marker");
-        if (marker) marker.textContent = "+";
-      });
-      if (!isOpen) {
-        card.classList.add("open");
-        const marker = card.querySelector(".marker");
-        if (marker) marker.textContent = "\u2212";
-      }
-    });
-
-    card.appendChild(button);
-    card.appendChild(reason);
-    rankingBlock.appendChild(card);
   });
+
+  container.innerHTML = html;
 }
 
 function renderReferencesPage() {
@@ -170,36 +94,9 @@ function renderReferencesPage() {
   content.references.forEach((entry) => {
     const article = document.createElement("article");
     article.className = "references-entry";
-    article.innerHTML = `
-      <h2>${entry.heading}</h2>
-      <p>${entry.body}</p>
-    `;
+    article.innerHTML = `<p>${entry.body}</p>`;
     list.appendChild(article);
   });
-}
-
-function setActiveNavLink() {
-  const links = [...document.querySelectorAll(".top-nav-links a[href^='#']")];
-  const sections = links
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-
-  if (!links.length || !sections.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((link) => {
-          const isCurrent = link.getAttribute("href") === `#${entry.target.id}`;
-          link.classList.toggle("active", isCurrent);
-        });
-      });
-    },
-    { rootMargin: "-40% 0px -45% 0px", threshold: 0.18 }
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }
 
 function revealOnScroll() {
@@ -213,16 +110,16 @@ function revealOnScroll() {
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.1 }
   );
 
   targets.forEach((target) => observer.observe(target));
 }
 
 renderHero();
+renderFilmAnalyses();
 renderVideoModule();
 renderDiscussion();
 renderVerdict();
 renderReferencesPage();
-setActiveNavLink();
 revealOnScroll();
