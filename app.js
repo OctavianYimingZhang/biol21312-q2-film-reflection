@@ -11,7 +11,6 @@ function renderHero() {
   intro.textContent = content.hero.intro;
 
   function applyTab(tab) {
-    document.body.dataset.lens = tab.key;
     lensPanel.innerHTML = `
       <div class="hero-film-tabs" id="hero-film-tabs"></div>
       <div class="hero-film-card">
@@ -48,16 +47,10 @@ function renderVideoModule() {
 
   title.textContent = content.video.title;
   caption.textContent = content.video.caption;
-  note.textContent = content.video.note;
-
-  if (content.video.localMp4) {
-    shell.innerHTML = `
-      <video controls preload="metadata" playsinline>
-        <source src="${content.video.localMp4}" type="video/mp4" />
-        Your browser does not support embedded MP4 playback.
-      </video>
-    `;
-    return;
+  if (content.video.note) {
+    note.textContent = content.video.note;
+  } else {
+    note.style.display = "none";
   }
 
   if (content.video.embedUrl) {
@@ -70,20 +63,7 @@ function renderVideoModule() {
         allowfullscreen
       ></iframe>
     `;
-    return;
   }
-
-  shell.innerHTML = `
-    <div class="video-placeholder">
-      <div class="video-placeholder-copy">
-        <span class="video-kicker">${content.video.placeholderTitle}</span>
-        <h3>${content.video.title}</h3>
-        <p>${content.video.placeholderText}</p>
-        <code class="embed-code">${content.video.placeholderCode}</code>
-      </div>
-      <div class="play-pulse" aria-hidden="true"></div>
-    </div>
-  `;
 }
 
 function renderDiscussion() {
@@ -156,7 +136,7 @@ function renderVerdict() {
         <strong>${item.title}</strong>
         <small>${item.line}</small>
       </span>
-      <span class="marker" aria-hidden="true">${index === 0 ? "−" : "+"}</span>
+      <span class="marker" aria-hidden="true">${index === 0 ? "\u2212" : "+"}</span>
     `;
 
     const reason = document.createElement("div");
@@ -173,7 +153,7 @@ function renderVerdict() {
       if (!isOpen) {
         card.classList.add("open");
         const marker = card.querySelector(".marker");
-        if (marker) marker.textContent = "−";
+        if (marker) marker.textContent = "\u2212";
       }
     });
 

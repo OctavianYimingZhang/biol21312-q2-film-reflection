@@ -30,37 +30,12 @@ window.SITE_CONTENT = {
     ],
   },
   video: {
-    title: "Insert the recorded presentation here",
+    title: "Recorded presentation",
     caption:
-      "The site is designed so the video becomes the dominant object near the top of the page, with the written argument working as a concise analytical companion rather than a transcript.",
-    note: "This build now uses a compressed local MP4 so the presentation can play directly inside the site.",
-    localMp4: "./presentation.mp4",
-    embedUrl: "",
-    placeholderTitle: "YouTube keynote-style placeholder",
-    placeholderText:
-      "This area is reserved for the final pre-recorded presentation. Keep the written site concise and let the video carry the longer spoken explanation.",
-    placeholderCode: "Add a local MP4 path or YouTube embed URL in content.js",
+      "A spoken overview of the written argument, covering how Trainspotting, Requiem for a Dream, and The Father portray mental health and neurological conditions.",
+    note: "",
+    embedUrl: "https://www.youtube.com/embed/q4s9YDMdOHc",
   },
-  criteria: [
-    {
-      title: "Experiential accuracy",
-      copy: "Does the film feel true to the condition as lived, not only as diagnosed?",
-    },
-    {
-      title: "Stigma impact",
-      copy: "Does it widen empathy, or reinforce fear, blame, and distance?",
-    },
-    {
-      title: "Agency and dignity",
-      copy: "Do characters remain people rather than becoming diagnosis symbols?",
-    },
-    {
-      title: "Education vs exploitation",
-      copy: "Does dramatic form clarify suffering, or turn it into spectacle?",
-    },
-  ],
-  frameworkNote:
-    "Film is typically better at conveying subjective experience and social fallout than at showing symptom frequencies, differential diagnosis, treatment, or prognosis accurately. Reviews of mental-illness portrayals find that entertainment media often exaggerate danger, unpredictability, and distorted treatment images; but research also shows that accurate, empathetic films can improve knowledge and reduce stigma, especially when they are framed educationally rather than consumed as pure sensation.",
   discussion: {
     intro:
       "Taken together, the real question is not whether film may depict illness, but whether it can turn highly stigmatized suffering into something viewable without reducing the person to a condition. Entertainment itself needs unpacking: tragedy belongs to the entertainment industry, but that does not mean illness must become enjoyable. What deserves criticism is not watchability itself, but watchability built on depersonalization, misinformation, and the consumption of pain. Research shows that film and popular media can increase empathy and be used in medical or psychiatric teaching, yet they also frequently dramatize and distort mental illness and its treatments, turning characters into dangerous, unpredictable, or ridicule-worthy figures.",
@@ -120,94 +95,6 @@ window.SITE_CONTENT = {
         ],
       },
     ],
-  },
-  comparison: {
-    summary:
-      "Both addiction films show damage. The real difference is how they position the audience in relation to addicted people.",
-    matrix: {
-      experiential: {
-        title: "Experiential accuracy",
-        explainer: "Which film best captures lived experience rather than distant observation?",
-        cards: [
-          {
-            film: "Trainspotting",
-            body: "Strong on attraction, repetition, and why relapse remains plausible.",
-          },
-          {
-            film: "Requiem for a Dream",
-            body: "Strong on collapse, but weaker on ordinary personhood and context.",
-          },
-          {
-            film: "The Father",
-            body: "Strongest overall because disorientation becomes the viewer's experience too.",
-          },
-        ],
-      },
-      stigma: {
-        title: "Stigma impact",
-        explainer: "Which film is most likely to deepen understanding instead of blame?",
-        cards: [
-          {
-            film: "Trainspotting",
-            body: "More humane because wit and social texture prevent total dehumanisation.",
-          },
-          {
-            film: "Requiem for a Dream",
-            body: "Most likely to reinforce horror and punishment as the dominant frame.",
-          },
-          {
-            film: "The Father",
-            body: "Most empathetic because the audience shares uncertainty instead of judging from outside.",
-          },
-        ],
-      },
-      dignity: {
-        title: "Agency and dignity",
-        explainer: "Which film keeps the character most fully intact as a person?",
-        cards: [
-          {
-            film: "Trainspotting",
-            body: "Keeps characters socially recognisable even while they are self-destructive.",
-          },
-          {
-            film: "Requiem for a Dream",
-            body: "Most at risk of reducing characters to cautionary symbols.",
-          },
-          {
-            film: "The Father",
-            body: "Preserves dignity most clearly because vulnerability never cancels subjectivity.",
-          },
-        ],
-      },
-      exploitation: {
-        title: "Education vs exploitation",
-        explainer: "Which film clarifies experience, and which risks commodifying suffering?",
-        cards: [
-          {
-            film: "Trainspotting",
-            body: "Educationally valuable, but ethically unstable because its formal energy can seduce.",
-          },
-          {
-            film: "Requiem for a Dream",
-            body: "Most vulnerable to spectacle because punishment dominates audience response.",
-          },
-          {
-            film: "The Father",
-            body: "Most defensible because form remains tied to understanding.",
-          },
-        ],
-      },
-    },
-  },
-  father: {
-    cardTitle: "Why it ranks first ethically",
-    lead:
-      "The Father shows that cinema can be dramatic and still protect dignity. The character remains vulnerable without becoming a puzzle, and the condition is rendered through subjectivity rather than spectacle.",
-    quote:
-      "It is the clearest example here of dramatic form deepening understanding rather than consuming suffering.",
-    detailSummary: "Optional benchmark note",
-    detail:
-      "The film is not a clinical summary of Alzheimer's disease, but it is the strongest experiential model because confusion is reproduced structurally rather than merely described.",
   },
   verdict: {
     text:
