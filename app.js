@@ -63,24 +63,45 @@ function renderVideoModule() {
   }
 }
 
-/* ── Film Analyses ── */
+/* ── Film Analyses (expandable cards) ── */
 function renderFilmAnalyses() {
   const container = document.getElementById("film-analyses");
   if (!container) return;
 
-  content.films.forEach((film) => {
+  content.films.forEach((film, index) => {
     const card = document.createElement("article");
     card.className = "film-card";
+    if (index === 0) card.classList.add("open");
     card.dataset.film = film.key;
+
     card.innerHTML = `
-      <h3>${film.title}</h3>
-      <p>${film.body}</p>
+      <div class="film-card-header">
+        <div>
+          <h3>${film.title}</h3>
+          <p class="film-card-summary">${film.summary}</p>
+        </div>
+        <span class="film-card-toggle">+</span>
+      </div>
+      <div class="film-card-body">
+        <p>${film.body}</p>
+      </div>
     `;
+
+    const header = card.querySelector(".film-card-header");
+    header.addEventListener("click", () => {
+      const isOpen = card.classList.contains("open");
+      if (isOpen) {
+        card.classList.remove("open");
+      } else {
+        card.classList.add("open");
+      }
+    });
+
     container.appendChild(card);
   });
 }
 
-/* ── Discussion ── */
+/* ── Discussion (accordion) ── */
 function renderDiscussion() {
   const intro = document.getElementById("discussion-intro");
   const container = document.getElementById("discussion-sections");
@@ -88,15 +109,34 @@ function renderDiscussion() {
 
   intro.textContent = content.discussion.intro;
 
-  content.discussion.sections.forEach((section) => {
-    const block = document.createElement("article");
-    block.className = "discussion-block";
+  content.discussion.sections.forEach((section, index) => {
+    const item = document.createElement("article");
+    item.className = "accordion-item";
+    if (index === 0) item.classList.add("open");
+
     const bodyHtml = section.body.map((p) => `<p>${p}</p>`).join("");
-    block.innerHTML = `
-      <h3>${section.title}</h3>
-      ${bodyHtml}
+
+    item.innerHTML = `
+      <div class="accordion-header">
+        <h3>${section.title}</h3>
+        <span class="accordion-chevron">\u25BC</span>
+      </div>
+      <div class="accordion-body">
+        ${bodyHtml}
+      </div>
     `;
-    container.appendChild(block);
+
+    const header = item.querySelector(".accordion-header");
+    header.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+      if (isOpen) {
+        item.classList.remove("open");
+      } else {
+        item.classList.add("open");
+      }
+    });
+
+    container.appendChild(item);
   });
 }
 

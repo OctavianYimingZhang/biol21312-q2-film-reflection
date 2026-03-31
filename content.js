@@ -10,18 +10,21 @@ window.SITE_CONTENT = {
     {
       key: "trainspotting",
       title: "Trainspotting",
+      summary: "Captures the behavioral logic of opioid dependence more accurately than clinical withdrawal detail. Boyle\u2019s subjective sequences place the viewer inside craving rather than observing it.",
       body:
         "Trainspotting is better understood as a portrayal of opioid use disorder than as a clinically exact account of heroin withdrawal. Addiction science defines addiction around compulsive drug seeking and use despite harm (Mameli and Luscher, 2011), and NIH teaching material explicitly uses Trainspotting as an example of life becoming organized around obtaining and using the drug (BIOL21312 Lecture 18). But standard opioid-withdrawal descriptions emphasize flu-like, gastrointestinal, autonomic, and anxiety or insomnia symptoms; hallucinations are not standard features and are notable enough to appear mainly as rare case reports. So the film gets the behavioral logic of dependence more right than the medical detail. Formally, Boyle's subjective sequences \u2014 the sinking-into-the-carpet heroin rush, the ceiling baby during withdrawal, the dive into the toilet \u2014 use camera and editing to place the viewer inside craving and distortion rather than observing it from outside, which is why the film communicates experiential accuracy more effectively than clinical accuracy.",
     },
     {
       key: "requiem",
       title: "Requiem for a Dream",
+      summary: "A stylized catastrophe model rather than a clinical portrait. Aronofsky\u2019s formal excess overwhelms rather than invites reflection, and its ECT scene reinforces outdated psychiatric stigma.",
       body:
         "Requiem for a Dream is less a representative clinical portrait than a stylized catastrophe model. Sara Goldfarb\u2019s stimulant-related collapse is clinically plausible because amphetamine misuse can produce persecutory delusions, hallucinations, and psychosis. But reviews of drug depictions note that even strongly anti-drug films like Requiem can unintentionally make intoxication visually alluring (Bosworth et al., 2024). Its ECT scene is not a fair guide to modern psychiatry: modern ECT is performed under general anesthesia, whereas film and TV portrayals commonly show ECT without anesthesia, as coercive, painful, and damaging, which is largely inaccurate and stigmatizing (Byrne, 2009). Aronofsky\u2019s formal choices reinforce the catastrophe framing: the split-screen compositions during shared drug use, the accelerating hip-hop montage sequences that compress time into sensory overload, and the final parallel editing of all four characters\u2019 collapses are designed to overwhelm rather than to invite reflective understanding.",
     },
     {
       key: "father",
       title: "The Father",
+      summary: "The strongest of the three for lived phenomenology. Zeller\u2019s shifting sets and actor substitutions reproduce disorientation structurally, giving the audience direct access to the confusion of dementia.",
       body:
         "The Father is the strongest of the three for lived phenomenology. Caregiver and scholarly responses praise it for placing viewers inside the confusion of dementia (Jha, 2022), and the misrecognition, temporal disorientation, paranoia, impaired judgment, and memory disturbance it shows are consistent with standard dementia symptom descriptions (Sawicka et al., 2022; BIOL21312 Lecture 22). One correction: the film depicts dementia, but it does not clearly establish Alzheimer\u2019s disease on-screen; outside commentary treats Alzheimer\u2019s as plausible rather than certain. The main caveat is ethical rather than diagnostic: dementia scholarship warns that portrayals centered on terror, loss of self, and caregiver burden can reinforce fear (Baldwin et al., 2019), and a Gerontologist review explicitly warned that The Father may deepen fearful public perceptions even while being artistically powerful. Zeller\u2019s formal strategy is what makes the film distinctive: the set subtly changes between scenes \u2014 furniture rearranges, wall colours shift, and actors are substituted without explanation \u2014 so that the viewer\u2019s own spatial and relational certainty is destabilized, reproducing disorientation structurally rather than merely describing it.",
     },
