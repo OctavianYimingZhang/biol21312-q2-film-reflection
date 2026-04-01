@@ -33,12 +33,10 @@ function initTabs() {
 function renderHero() {
   const title = document.getElementById("hero-title");
   const intro = document.getElementById("hero-intro");
-  const bridge = document.getElementById("hero-bridge");
-  if (!title || !intro || !bridge) return;
+  if (!title || !intro) return;
 
   title.textContent = content.hero.title;
   intro.textContent = content.hero.intro;
-  bridge.textContent = content.hero.bridge;
 }
 
 function renderVideoModule() {
@@ -61,44 +59,6 @@ function renderVideoModule() {
       ></iframe>
     `;
   }
-}
-
-/* ── Film Analyses (expandable cards) ── */
-function renderFilmAnalyses() {
-  const container = document.getElementById("film-analyses");
-  if (!container) return;
-
-  content.films.forEach((film, index) => {
-    const card = document.createElement("article");
-    card.className = "film-card";
-    if (index === 0) card.classList.add("open");
-    card.dataset.film = film.key;
-
-    card.innerHTML = `
-      <div class="film-card-header">
-        <div>
-          <h3>${film.title}</h3>
-          <p class="film-card-summary">${film.summary}</p>
-        </div>
-        <span class="film-card-toggle">+</span>
-      </div>
-      <div class="film-card-body">
-        <p>${film.body}</p>
-      </div>
-    `;
-
-    const header = card.querySelector(".film-card-header");
-    header.addEventListener("click", () => {
-      const isOpen = card.classList.contains("open");
-      if (isOpen) {
-        card.classList.remove("open");
-      } else {
-        card.classList.add("open");
-      }
-    });
-
-    container.appendChild(card);
-  });
 }
 
 /* ── Discussion (accordion) ── */
@@ -145,21 +105,7 @@ function renderVerdict() {
   const container = document.getElementById("verdict-content");
   if (!container) return;
 
-  let html = `<p class="verdict-text">${content.verdict.text}</p>`;
-
-  content.verdict.films.forEach((film) => {
-    const key = film.title === "The Father" ? "father"
-      : film.title === "Trainspotting" ? "trainspotting"
-      : "requiem";
-    html += `
-      <article class="verdict-card" data-film="${key}">
-        <h3>${film.title}</h3>
-        <p>${film.assessment}</p>
-      </article>
-    `;
-  });
-
-  container.innerHTML = html;
+  container.innerHTML = `<p class="verdict-text">${content.verdict.text}</p>`;
 }
 
 /* ── References page ── */
@@ -179,7 +125,6 @@ function renderReferencesPage() {
 initTabs();
 renderHero();
 renderVideoModule();
-renderFilmAnalyses();
 renderDiscussion();
 renderVerdict();
 renderReferencesPage();
