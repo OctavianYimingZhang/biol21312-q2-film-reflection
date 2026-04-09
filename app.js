@@ -105,7 +105,26 @@ function renderVerdict() {
   const container = document.getElementById("verdict-content");
   if (!container) return;
 
-  container.innerHTML = `<p class="verdict-text">${content.verdict.text}</p>`;
+  let html = `<p class="verdict-text">${content.verdict.text}</p>`;
+
+  if (content.verdict.note) {
+    html += `<p class="verdict-note">${content.verdict.note}</p>`;
+  }
+
+  if (content.verdict.ranking) {
+    html += `<div class="ranking-block">`;
+    content.verdict.ranking.forEach((item) => {
+      html += `
+        <div class="ranking-card">
+          <strong>${item.title}</strong>
+          <span class="ranking-line">${item.line}</span>
+          <p>${item.reason}</p>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  container.innerHTML = html;
 }
 
 /* ── References page ── */
